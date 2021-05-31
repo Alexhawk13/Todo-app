@@ -1,7 +1,7 @@
 form {
   display: flex;
   flex-direction: column;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 label {
@@ -9,10 +9,61 @@ label {
   padding: 8px;
 }
 
+.add-form input {
+  padding: 10px;
+}
+
+.newItem {
+  margin-right: 5px;
+}
+
+.inner-container {
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+  align-self: flex-start;
+  text-align: left;
+  background-color: #19042d;
+  min-width: 350px;
+  max-width: 500px;
+  width: 500px;
+  // overflow: hidden;
+  // white-space: nowrap;
+  overflow-wrap: anywhere;
+  margin-bottom: 2%;
+  border-radius: 5px;
+  color: #04ffaed9;
+}
+
+
+.icon {
+  background-color: #00edff;
+  padding: 2px;
+  border-radius: 5px;
+  margin: 0 5px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.icon-delete {
+  background-color: #ff0000;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
+}
+
+.body {
+  background: rgb(24,4,23);
+  background: radial-gradient(circle, rgba(24,4,23,1) 0%, rgba(10,0,14,1) 25%, rgba(17,2,38,1) 50%, rgba(1,4,171,1) 75%, rgba(2,43,52,1) 100%);
+  min-height: 100vh;
+  padding-top: 10%;
+}
+
+.create-form {
+  padding-top: 10%;
 }
 
 .create-form {
@@ -28,7 +79,6 @@ label {
 
 .add-form {
   margin-top: 15px;
-
   &input {
     padding: 5px;
   }
@@ -36,8 +86,14 @@ label {
 
 .preview {
   margin-top: 15px;
-  border: 2px solid black;
-  padding: 5px;
+  border: 2px solid rgb(156, 217, 241);
+  color: white;
+}
+
+button {
+  padding: 8px;
+  font-size: 16px;
+  background-color: rgb(115, 128, 168);
 }
 
 .title {
@@ -47,15 +103,13 @@ label {
 .delete-button {
   position: absolute;
   right: 0;
-  top: -60%;
+  top: 78px;
   background-color: red;
   color: white;
   padding: 5px;
   font-size: 14px;
   transition: 0.2s;
-  // &:hover {
-  // background-color: maroon;
-  // }
+  border-radius: 8px;
 }
 
 #before-leave {
@@ -64,4 +118,58 @@ label {
 
 #before-leave.show {
   display: block;
+}
+
+.save-cancel {
+  margin-top: 20px;
+}
+
+.save {
+  margin-right: 10px;
+}
+
+.cancel {
+  margin-left: 10px;
+}
+
+#success {
+  position: absolute;
+  width: 100%;
+}
+
+.success-save {
+  font-size: 24px;
+  color: white;
+  background-color: #103333;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.description {
+  color: #88b3e7;
+}
+
+#before-leave {
+  position: fixed;
+  width: 50%;
+  background-color:#8eadec;
+  color: #450246;
+  z-index: 3;
+  left: 25%;
+  padding: 5% 0;
+  border-radius: 15px;
+  font-size: 20px;
 }

@@ -1,22 +1,25 @@
 <template>
-  <div>
-    <router-link to="edit"></router-link>
+  <div class="body">
     <div class="item" v-for="(todo,index) in todos" :key="index">
-      <form class="container">
+      <form class="item__container">
         <!-- Dialog window -->
-        <div v-if="todo.show">
+        <div v-if="todo.delete">
           <h5>You sure want to delete this note?</h5>
-          <button @click="yes(index)">Yes</button>
-          <button @click="no(index)">No</button>
+          <button @click.prevent="yes(index)">Yes</button>
+          <button @click.prevent="no(index)">No</button>
         </div>
         <!-- End of Dialog window -->
-        <h2>{{todo.title}}</h2>
-        <button class="delete-note" @click="deleteNote(index)">X</button>
-        <label v-for="(description,index) in todo.desc" :key="index">
+        <h3 class="title">{{todo.title}}</h3>
+        <button class="delete-note" @click.prevent="deleteNote(index)">X</button>
+        <label
+          :class="{lineThrough: description.completed}"
+          v-for="(description,index) in todo.desc"
+          :key="index"
+        >
           <input disabled type="checkbox" :id="index" v-model="description.completed" />
           {{description.name}}
         </label>
-        <router-link class="link" :to="{name : 'edit', params: {id:index}}">edit</router-link>
+        <router-link class="link" :to="{name : 'edit', params: {id:index}}">Edit</router-link>
       </form>
     </div>
   </div>
@@ -32,7 +35,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["todos", "answer", "show"]),
+    ...mapState(["todos"]),
   },
   methods: {
     ...mapMutations(["deletingNote", "agree", "decline"]),
@@ -51,26 +54,5 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
-.item {
-  border: 2px solid maroon;
-  margin: 20px;
-}
-.link {
-  display: block;
-}
-.container {
-  position: relative;
-}
-.delete-note {
-  position: absolute;
-  right: 0;
-  top: -20px;
-}
-.modal {
-  display: block;
-}
-.hide {
-  display: none;
-}
+<style src="../styles/_todoBlock.scss" lang="scss" scoped>
 </style>
